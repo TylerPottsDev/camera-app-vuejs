@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<img alt="Vue logo" src="./assets/logo.png">
+		<video autoplay></video>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+	name: 'app',
+	components: {},
+	data: function () {
+		return {
+			stream: null
+		}
+	},
+	methods: {
+		init: async function () {
+			// if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+			// 	let constraints = {
+			// 		video: {
+			// 			width: { min: 1280 },
+			// 			height: { min: 720 }
+			// 		},
+			// 	};
+
+			// 	const stream = await navigator.mediaDevices.getUserMedia(constraints);
+
+			// 	const video = document.querySelector('video');
+			// }
+		},
+		getDevices: async function () {
+			// const devices = await navigator.mediaDevices.enumerateDevices();
+		}
+	},
+	beforeMount: function () {
+		this.init();
+	}
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+video {
+	width: 100%;
+	background: rgba(0, 0, 0, 0.2);
 }
 </style>
